@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <title>Git - Présentation</title>
+</head>
+
+<body>
+<main class="container">
+    <h1 class="display-1">Présentation</h1>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Qu'est-ce que Git ?</h2>
+
+        <p class="mt-3">
+            Git est un système de gestion de vesions décentalisé créé par <a href="https://fr.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a>.
+            Ce qui signifie qu'il va géré les versions d'un projet (logiciel, document, etc ...), pas sur un serveur centralisé comme le ferait SVN, mais sur toutes les machines ayant une copie des sources.
+        </p>
+
+        <p class="mt-3">
+            Git est une véritable machine à remonter le temps, permettant de revenir en arrière dans les sources du projet et donc d'en voir plusieurs versions.
+            Il a aussi pour but de facilité le travaille en équipe, mais aussi sur des projets personnels.
+            Il est indispensable au travail du développeur.
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Un peu d'histoire</h2>
+
+        <p class="mt-3">
+            Linus Torvalds etant le seul à gérer les sources de Linux, il se retrouve surchargé de travail du fait de la quantité grandissante des contributeurs.
+            Il décide donc, en 2002, de migrer sur BitKeeper de Larry McVoy, un VCS gratuit pour les projets open source.
+            Mais voilà, la version gratuite ne permettait pas gérer les métadonnées. Alors Andrew Tridgell, contributeur du noyau de Linux et créateur de Samba, décide de créer un système pour récupérer ses métadonnées.
+            Ceci sera très mal vu par Larry McVoy, qui estime qu'on doit jouer le jeu des limitations quand on prend une version gratuite. En février 2005, il décide donc d'arrêter la version gratuite de BitKeeper à partir de juillet 2005.
+        </p>
+
+        <p class="mt-3">
+            La situation mettant sous tension le projet Linux, Linus Torvalds décide de se pencher sur la question, en palliant au passage les inconvennients qu'il avait rencontrés.
+            Le 20 avril 2005 Linus Torvalds annonce la sortie de Git !
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Installation</h2>
+
+        <p class="mt-3">
+            Pour installer Git sous Windows, rien de bien compliqué !
+            Allez sur le site de <a href="https://git-scm.com/">Git</a> et télécharger la dernière version. Ensuite, laissez-vous guider par l'installeur.
+            Ensuite pour valider l'installation saisissez <kbd>git --version</kbd> pour vérifier qu'il est bien installé et que vous êtes sous la bonne version.
+        </p>
+
+        <pre class="bg-dark"><code class="text-white">
+    λ git --version
+    git version 2.31.1.windows.1
+        </code></pre>
+
+        <p class="mt-3">
+            Félicitation ! Git est installé et prêt à fonctionner.
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Configuration</h2>
+
+        <p class="mt-3">
+            Comme tout outils, Git doit être configuré.
+            Pour se faire on va commencer par configurer notre adresse mail et notre nom.
+        </p>
+
+        <pre class="bg-dark"><code class="text-white">
+    λ git config --global user.name "Mickaël AUGER"
+    λ git config --global user.email auger.mickael37@gmail.com
+        </code></pre>
+
+        <p class="mt-3">
+            En utilisant le commutateur <kbd>--global</kbd> on s'assure que la configuration sera faite pour tous les projets.
+            Si on fait un <kbd>git congif --list</kbd> on aura la liste des configurations enregistrées pour le global.
+            Avec le commutateur <kbd>--show-origin</kbd> on ajoute l'emplacement des différentes configurations.
+        </p>
+
+        <pre class="bg-dark"><code class="text-white">
+    λ git config --list
+    http.sslcainfo=C:/Outils/Git/mingw64/ssl/certs/ca-bundle.crt
+    http.sslbackend=openssl
+    diff.astextplain.textconv=astextplain
+    filter.lfs.clean=git-lfs clean -- %f
+    filter.lfs.smudge=git-lfs smudge -- %f
+    filter.lfs.process=git-lfs filter-process
+    filter.lfs.required=true
+    credential.helper=manager-core
+    core.autocrlf=true
+    core.fscache=true
+    core.symlinks=false
+    core.editor="C:\\Outils\\Microsoft VS Code\\Code.exe" --wait
+    pull.rebase=false
+    credential.https://dev.azure.com.usehttppath=true
+    init.defaultbranch=master
+    user.email=auger.mickael37@gmail.com
+    user.name=Mickaël AUGER
+        </code></pre>
+    </section>
+
+    <div class="row">
+        <div class="col-auto mr-auto"></div>
+        <a href="2_bases.html" class="btn btn-outline-primary col-auto">Suivant</a>
+    </div>
+</main>
+
+<script src="../../scripts/prism.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+</html>
