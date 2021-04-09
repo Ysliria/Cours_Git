@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/prism.css">
+    <title>Git - Aller plus loin</title>
+</head>
+
+<body>
+<main class="container">
+    <h1 class="display-1">Aller plus loin</h1>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Les dépots en ligne</h2>
+
+        <p class="mt-3">
+            Que ce soit sur un serveur privée ou sur des serveurs en ligne, vous pouvez utiliser des dépots distants pour avoir un point central où stocker vos sources.
+            Cela ne changera pas le fait que le système est décentralisé du fait de la duplication des sources sur tout les postes qui reproduise le projet, mais au moins vous pourrez accéder à vos sources de nimporte où.
+        </p>
+
+        <p class="mt-3">
+            Il existe plusieurs dépôts distants parmis lesquels les plus connus sont :
+        </p>
+
+        <ul>
+            <li> <a href="https://github.com/">GitHub</a></li>
+            <li> <a href="https://about.gitlab.com/">GitLab</a></li>
+            <li> <a href="https://bitbucket.org/">BitBucket</a></li>
+        </ul>
+
+        <p class="mt-3">
+            ... et bien d'autres.
+            <br>
+            Tous permette la création de dépôts public (accessible à tous) ou privée (uniquement pour les membres invités).
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Utiliser un dépôt en ligne</h2>
+
+        <p class="mt-3">
+            Pour utiliser les dépôts en ligne il faut :
+        </p>
+
+        <ul>
+            <li>Avoir un compte sur ces dépôts</li>
+            <li>Ajouter la source du dépôt distant à notre Git local</li>
+            <li>Et connaitre au moins 3 nouvelles commandes Git</li>
+        </ul>
+
+        <h3 class="text-muted">Avoir un compte en ligne</h3>
+        <p class="mt-3">
+            Pour avoir un compte en ligne il suffit de le créer. Et c'est d'une facilité déconcertante.
+        </p>
+
+        <div class="text-center">
+            <figure class="figure">
+                <img src="../images/git_github_register.PNG" class="img-fluid rounded" alt="github">
+                <figcaption class="figure-caption text-right">Page d'inscription de GitHub</figcaption>
+            </figure>
+        </div>
+
+        <div class="text-center">
+            <figure class="figure">
+                <img src="../images/git_gitlab_register.PNG" class="img-fluid rounded" alt="gitlab">
+                <figcaption class="figure-caption text-right">Page d'inscription de GitLab</figcaption>
+            </figure>
+        </div>
+
+        <div class="text-center">
+            <figure class="figure">
+                <img src="../images/git_bitbucket_register.PNG" class="img-fluid rounded" alt="bitbucket">
+                <figcaption class="figure-caption text-right">Page d'inscription de BitBucket</figcaption>
+            </figure>
+        </div>
+
+        <h3 class="text-muted">Ajouter la source du dépôt distant à notre Git local</h3>
+        <p class="mt-3">
+            Pour ajouter le dépot distant à votre git local il faut utiliser une ligne de commande :
+            <kbd>git remote add MC https://github.com/Nom-De-Votre-Compte/NomDeVotreProjet.git</kbd>.
+            <br>
+            La commande dit : Git ajoute (add) un dépot distant (remote) dont le petit nom est <i>MC</i> et qui se trouve à cette URL.
+        </p>
+
+        <p class="mt-3">
+            Voilà votre dépôt distant est ajouté. Vous pouverz aussi ajouter une clef SSH pour simplifié la connexion, mais pour cela je vous laisse vous référer au tutoriel présent chez le fournisseur que vous aurez choisis.
+        </p>
+
+        <h3 class="text-muted">Les commandes Git pour travailler avec un dépôt distant</h3>
+        <p class="mt-3">
+            Il existe 3 commandes principale pour travailller avec un dépôt distant sous Git.
+        </p>
+
+        <ul>
+            <li><kbd>git clone https://github.com/Nom-De-Votre-Compte/NomDeVotreProjet.git</kbd> : qui permet de clôner un projet existant sur votre poste. En gros il rappatrie les source et l'arbre Git.</li>
+            <li><kbd>git pull</kbd> : c'est la commande qui permet de mettre à jour votre dépôt local par rapport au dépôt distant.</li>
+            <li><kbd>git push</kbd> : à l'inverse de la précédente, envoie votre code sur le dépôt distant pour le mettre à jour avec vos modifications.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">GitFlow</h2>
+
+        <p class="mt-3">
+            Il n'y a rien de miraculeux dans l'utilisation de ces commandes, mais il faudra être très attentif pour limiter les conflits et les erreurs.
+            Pour ce faire il peut ête très important de définir un GitFlow.
+        </p>
+
+        <p class="mt-3">
+            Il en existe plusieurs, mais certaines bases ressortent de tous : la création de branches en fonction de l'avancement du travail.
+        </p>
+        <ul>
+            <li>La <strong>master</strong> : elle représente la version de production de votre projet.</li>
+            <li>La <strong>develop</strong> : elle représente ce qui est en cour de développement.</li>
+            <li>La <strong>feature</strong> : c'est plus un dossier qu'une branche, dans lequel se trouverons les différentes branche de fonctionnalité en cour de dévelopement : <kbd>git branche feature/issue_1</kbd>.</li>
+            <li>La <strong>release</strong> : elle prépare ce qui sera livré en production.</li>
+            <li>La <strong>hotfix</strong> : elle ne sert qu'à corriger les bogues qui seront poussés immédiatement sur la branche master.</li>
+        </ul>
+
+        <div class="text-center">
+            <figure class="figure">
+                <img src="../images/gitflow.png" class="img-fluid rounded" alt="gitflow">
+                <figcaption class="figure-caption text-right">Exemple de GitFlow</figcaption>
+            </figure>
+        </div>
+
+        <p class="mt-3">
+            Attention cependant, le GitFlow doit être adapté à votre façon de travailler. Qui plus est, il faut bien faire attention à toujours "<i>pull</i>" avant de "<i>commit</i>" vos modifications et de les "<i>push</i>" par la suite.
+            Sans quoi vous risqueriez de pousser des conflits sur le dépot distant, ce qui impacterait tous les participants au projet.
+        </p>
+
+        <p class="mt-3">
+            Vous pourrez trouver un autre exemple de l'utilisation du GitFlow <a href="https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html">ici</a> et
+            <a href="https://medium.com/@olivier.bossel/git-flow-the-right-way-to-go-f2a65c315818">là</a>.
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Interface graphique</h2>
+
+        <p class="mt-3">
+            Pour vous aidez, certains éditeurs incluent des outils graphiques (gratuits ou payants), comme JetBrains.
+        </p>
+
+        <div class="text-center">
+            <figure class="figure">
+                <img src="../images/git_ui_phpstorm.PNG" class="img-fluid rounded" alt="gui phpstorm">
+                <figcaption class="figure-caption text-right">Exemple de GUI dans PHPStorm</figcaption>
+            </figure>
+        </div>
+
+        <p class="mt-3">
+            Ou dautres encore sont présenté sur le site officiel de <a href="http://git-scm.com/downloads/guis/">Git</a>.
+        </p>
+    </section>
+
+    <div class="row">
+        <a href="3_branches.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+    </div>
+</main>
+
+<script src="../scripts/prism.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+</html>
